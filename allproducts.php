@@ -97,7 +97,7 @@ $products = $obj->Getallproduct();
                             <td><?php echo  $value['clasp'] ?></td>
                             <td><?php echo  $value['water_resistance'] ?></td>
                             <td>
-                                <form action="deleteproduct.php" method="post" onsubmit="validateDelete(event)">
+                                <form action="deleteproduct.php" method="post" onsubmit="Deleteproduct(event)">
                                     <input type="hidden" name="watchid" value="<?php echo  $value['watch_id']  ?>">
                                     <input type="submit" class='btn btn-outline-danger btn-sm  col-12' name="btndelete" value="Delete">
                                 </form>

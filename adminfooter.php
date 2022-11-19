@@ -8,7 +8,7 @@
             </div>
         </footer>
         <script type="text/javascript" language="javascript">
-            function validateDelete(e) {
+            function Updatestatus(e) {
                 var response = confirm('Are you sure you want to update this order?');
                 if (response == true) {
                     return true;
@@ -17,6 +17,25 @@
                     return false;
                 }
             }
+            function validateDelete(e) {
+                var response = confirm('Are you sure you want to delete this Brand?');
+                if (response == true) {
+                    return true;
+                } else {
+                    e.preventDefault();
+                    return false;
+                }
+            }
+            function Deleteproduct(e) {
+                var response = confirm('Are you sure you want to delete this product?');
+                if (response == true) {
+                    return true;
+                } else {
+                    e.preventDefault();
+                    return false;
+                }
+            }
+            
         </script>
 
         <?php

@@ -40,17 +40,17 @@ if (isset($_SESSION['log']) && $_SESSION['log'] == "#AdMin#") {
     <style>
         @font-face {
             font-family: 'czars';
-            src: url('unica_one/UnicaOne-Regular.ttf');
+            src: url('Unica_One/UnicaOne-Regular.ttf');
         }
 
         @font-face {
             font-family: 'czars3';
-            src: url('pacifico/pacifico-Regular.ttf');
+            src: url('Pacifico/Pacifico-Regular.ttf');
         }
 
         @font-face {
             font-family: 'czars2';
-            src: url('padauk/padauk-Regular.ttf');
+            src: url('Padauk/Padauk-Regular.ttf');
         }
 
 
