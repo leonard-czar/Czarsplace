@@ -26,10 +26,10 @@ $corder = $cobj->Getcustomerorder($_SESSION['customer_id']);
   <meta name="keywords" content="czar's Place,wristwatch,luxury watch,mechanical watch,
     time,timepiece,online store,watch store,watch collection,
     lagos,rolex,hublot,patek phillepe,">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-<link rel="manifest" href="favicon_io/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
 
   <link rel="stylesheet" href="bootstrap/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="fontawesome/css/all.min.css">
@@ -147,8 +147,6 @@ $corder = $cobj->Getcustomerorder($_SESSION['customer_id']);
       background-color: rgba(255, 255, 255, 0.5);
       border-radius: 30%;
     }
-
-
   </style>
 
 </head>
@@ -228,21 +226,22 @@ $corder = $cobj->Getcustomerorder($_SESSION['customer_id']);
                                                               } ?>" style="padding-left: 10px;">
                 <a class="nav-link active " style="color:rgba(255, 255, 255,0.5);" href="cart.php">
                   <button type="sumbit" class="btn btn-sm btn-light" name="cart">
-                    <i class="fa-solid fa-cart-shopping" style="font-size: 0.9rem!important;"></i> <span class="badge <?php 
-                    $itemobj = new Customer();
-                    $item = $itemobj->getcart($_SESSION['customer_id']);
-                    if (!empty($item)) {
-                        echo "bg-success";}else {                          
-                        }
-                       ?>" style="font-size:0.5rem ;">
-                      <?php 
+                    <i class="fa-solid fa-cart-shopping" style="font-size: 0.9rem!important;"></i> <span class="badge <?php
+                                                                                                                      $itemobj = new Customer();
+                                                                                                                      $item = $itemobj->getcart($_SESSION['customer_id']);
+                                                                                                                      if (!empty($item)) {
+                                                                                                                        echo "bg-success";
+                                                                                                                      } else {
+                                                                                                                      }
+                                                                                                                      ?>" style="font-size:0.5rem ;">
+                      <?php
                       if (!empty($item)) {
                         echo count($item);
-                      }else {                     
-                      }                      
+                      } else {
+                      }
                       ?>
                     </span>
-                    
+
                   </button>
                   </b>
                 </a>
