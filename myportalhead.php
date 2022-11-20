@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['logger']) && $_SESSION['logger'] == "#czar") {
 } else {
 
-  $msg = "You need to Login to access this page!";
+  // $msg = "You need to Login to access this page!";
   header("Location: login.php?msg=$msg");
   exit();
 }
