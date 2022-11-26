@@ -1,14 +1,13 @@
 <?php include_once "myportalhead.php";
-
+ function sanitize($data)
+ {
+     $data = trim($data);
+     $data = strtolower($data);
+     $data = strip_tags($data);
+     return $data;
+ }
 ?>
-<?php function sanitize($data)
-{
-    $data = trim($data);
-    $data = strtolower($data);
-    $data = strip_tags($data);
-    return $data;
-}
-
+<?php 
 $delobj = new Customer();
 $oobj = new Customer();
 $Ordobj = new Customer();
@@ -31,16 +30,17 @@ $totals = $itemobj->getcarttotal($_SESSION['customer_id']);
         if (isset($_REQUEST['continue']) && !empty(sanitize($_REQUEST['Address']))) {
             $sum = array_sum($totals);
             $id = rand();
-            $Ordobj->insertOrders($id, $_SESSION['customer_id'], $sum, (sanitize($_REQUEST['Address'])), $_REQUEST['altphone']);
+            $Ordobj->insertOrders($id, $_SESSION['customer_id'],(sanitize($_REQUEST['Address'])), $_REQUEST['altphone']);
 
             foreach ($item as $key => $value) {
                 $oobj->insertOrders_details($id, $value['watchid'], $value['qty'], $value['price'], $value['total']);
             }
 
-            $order = "CZP" . $id;
+            $order = $id;
             $sum;
+            $email=$_SESSION['email'];
             $delobj->Deletecart($_SESSION['customer_id']);
-            header("Location: orderconfirm.php?order=$order&total=$sum;");
+            header("Location: paystack_init.php?order=$order&total=$sum&email=$email;");
             exit;
         } else {
             echo  "<div class='row m-1 text-center justify-content-center '>
@@ -61,7 +61,7 @@ $totals = $itemobj->getcarttotal($_SESSION['customer_id']);
 
                     <input type="text" name="Address" value="" placeholder="Enter Delivery Address" class="form-control text-center">
                     <input type="number" name="altphone" value="" placeholder="Alternative Phonenumber (optional) " class="form-control text-center mt-2 col-6">
-                    <input type="submit" name="continue" value="Continue" class="btn btn-outline-primary mt-3">
+                    <input type="submit" name="continue" value="Continue to Payment" class="btn btn-outline-primary mt-3">
                     <input type="hidden" name="totalorders" value="<?php if (isset($_REQUEST['alltotal'])) {
                                                                         echo $_REQUEST['alltotal'];
                                                                     }  ?>">

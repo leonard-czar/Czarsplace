@@ -398,7 +398,7 @@ class Customer
 
     function Getcustomerorder($id)
     {
-        $stmt = $this->dbconnect->prepare("SELECT * FROM customer_orders where customer_id=?");
+        $stmt = $this->dbconnect->prepare("SELECT * FROM customer_orders join payments on customer_orders.orders_id=payments.orderid where customer_id=?");
         $stmt->bind_param("i",$id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -503,11 +503,10 @@ class Customer
         }
     }
 
-    function insertOrders($orderid, $userid, $total,$shipad, $altphone)
+    function insertOrders($orderid, $userid,$shipad, $altphone)
     {
-        $stmt = $this->dbconnect->prepare("INSERT INTO customer_orders set orders_id=?,customer_id=?, order_status=?,total_amount=?, shipping_address=?,alt_phonenumber=? ");
-        $status = "pending";
-        $stmt->bind_param("iisdss", $orderid, $userid, $status, $total,$shipad, $altphone);
+        $stmt = $this->dbconnect->prepare("INSERT INTO customer_orders set orders_id=?,customer_id=?, shipping_address=?,alt_phonenumber=? ");
+        $stmt->bind_param("iiss", $orderid, $userid, $shipad, $altphone);
         $stmt->execute();
         
     }
@@ -519,6 +518,7 @@ class Customer
         $stmt->execute();
         
     }
+   
 
    
 }

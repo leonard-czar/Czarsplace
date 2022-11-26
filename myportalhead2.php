@@ -181,27 +181,27 @@ $corder = $cobj->Getcustomerorder($_SESSION['customer_id']);
 
 
     <div class="row " style="background-color: #050C24;position:
-                sticky;top: 0;z-index:1; padding-left:12px;display:flex;padding-right:12px; ">
+                sticky;top: 0;z-index:1; padding-left:12px;display:flex; ">
       <div>
         <nav class="navbar navbar-expand navbar-light">
           <div class="collapse navbar-collapse " id="navbarSupportedContent">
-            <ul class="navbar-nav mb-sm-2 col-sm text-center">
-              <li class="nav-item col-sm-1" >
+            <ul class="navbar-nav mb-sm-2 col-sm">
+              <li class="nav-item col-sm" style="padding-left: 10px;">
                 <a class="nav-link " href="dashboard.php" style="color:rgba(255, 255, 255,0.5);font-size: 1.1vw!important;">
                   <b> HOME</b>
                 </a>
               </li>
-              <li class="nav-item col-sm-1" >
+              <li class="nav-item col-sm" style="padding-left: 10px;">
                 <a class="nav-link " href="displaybrands.php" style="color:rgba(255, 255, 255,0.5);font-size: 1.1vw!important;">
                   <b> BRANDS </b>
                 </a>
               </li>
-              <li class="nav-item col-sm-2" >
+              <li class="nav-item col-sm-2" style="padding-left: 10px;">
                 <a class="nav-link " href="malewatches.php" style="color:rgba(255, 255, 255,0.5);font-size: 1.1vw!important;">
                   <b> MEN COLLECTIONS</b>
                 </a>
               </li>
-              <li class="nav-item col-sm-2" >
+              <li class="nav-item col-sm-2" style="padding-left: 10px;">
                 <a class="nav-link " href="femalewatches.php" style="color:rgba(255, 255, 255,0.5);font-size: 1.1vw!important;">
                   <b> LADIES COLLECTIONS</b>
                 </a>
@@ -209,24 +209,23 @@ $corder = $cobj->Getcustomerorder($_SESSION['customer_id']);
               <?php
               if (!empty($corder)) {
               ?>
-                <li class="nav-item col-sm-2 " >
+                <li class="nav-item col-sm-2 " style="padding-left: 10px;">
                   <a class="nav-link " href="customerorder.php" style="color:rgba(255, 255, 255,0.5);font-size: 1.1vw!important;">
                     <b> MY ORDERS</b>
                   </a>
-                </li>                
-                <li class="offset-sm-1"></li>
+                </li>
               <?php
               } else {
               }
               ?>
-              <li class="nav-item col-sm  <?php if (!empty($corder)) {
-                                                                echo "";
+              <li class="nav-item col-sm d-flex  flex-grow-1 <?php if (!empty($corder)) {
+                                                                echo "offset-sm-1";
                                                               } else {
-                                                                echo "offset-sm-4";
+                                                                echo "offset-sm-2";
                                                               } ?>" style="padding-left: 10px;">
                 <a class="nav-link active " style="color:rgba(255, 255, 255,0.5);" href="cart.php">
-                  <button type="sumbit" class="btn btn-sm btn-outline-dark" name="cart">
-                    <i class="fa-solid fa-cart-shopping text-light" style="font-size: 1rem!important;"></i> <span class="badge <?php
+                  <button type="sumbit" class="btn btn-sm btn-light" name="cart">
+                    <i class="fa-solid fa-cart-shopping" style="font-size: 0.9rem!important;"></i> <span class="badge <?php
                                                                                                                       $itemobj = new Customer();
                                                                                                                       $item = $itemobj->getcart($_SESSION['customer_id']);
                                                                                                                       if (!empty($item)) {

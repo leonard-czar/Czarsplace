@@ -88,6 +88,7 @@ color:rgba(255, 255, 255,0.5);font-size: 10px!important;" id="aboutus">
             justify-content:center;" id="copyright_txt">&copy; <?php echo date("Y"); ?> <?php echo CZARS; ?></p>
     </div>
     </div>
+    <script src="bootstrap/bootstrap/js/bootstrap.min.js"></script>
 </footer> <script type="text/javascript" language="javascript">
         function validateDelete(e) {
             var response = confirm('Are you sure you want to clear cart?');

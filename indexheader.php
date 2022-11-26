@@ -157,7 +157,7 @@ include_once "functions/admin.php";
           </a>
         </div>
         <div class="col-sm offset-sm-5 pt-sm-3 ">
-          <form class="d-flex  flex-grow-1 bd-highlight" method="post" action="index_redirect.php">
+          <form class="d-sm-flex  flex-grow-1 bd-highlight" method="post" action="index_redirect.php">
             <input class=" me-1" type="text" name="searchbox" placeholder="Search" aria-label="Search" id="inputs">
             <button class="btn btn-outline-success btn-sm" type="submit" name="btnsearch">
               Search
