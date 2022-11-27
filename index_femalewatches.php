@@ -22,7 +22,7 @@ $femalewatches = $femaleobj->getfemalewatches();
 
           <input type="hidden" value="<?php echo $value['watch_id']; ?>" name="productid">
           <input type="hidden" value="<?php echo $value['watch_price']; ?>" name="productprice">
-
+          <input type="hidden" value="<?php echo $value['brand_name']; ?>" name="brandname">
           <input type="hidden" value="<?php echo $value['watch_image']; ?>" name="productimg">
           <input type="hidden" value="<?php echo $value['watch_description']; ?>" name="productdesc">
           <input type="hidden" value="<?php echo $value['collection']; ?>" name="Collection">
