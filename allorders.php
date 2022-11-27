@@ -41,20 +41,12 @@ if (!empty($orders)) {
                             <td><?php echo  $kanta++ ?></td>
                             <td><?php echo  "CZP" . $value['orders_id'] ?></td>
                             <td><?php echo  $value['customer_id'] ?></td>
-                            <td><?php echo  $value['order_status'] ?></td>
-                            <td><?php echo  $value['total_amount'] ?></td>
+                            <td><?php echo  $value['payment_status'] ?></td>
+                            <td><?php echo  $value['amount'] ?></td>
                             <td><?php echo  $value['shipping_address'] ?></td>
                             <td><?php echo  $value['alt_phonenumber'] ?></td>
                             <td><?php echo date('jS M Y h:i:s a', strtotime($value['order_date'])); ?></td>
                             <td>
-                                <form action="status.php" method="post" onclick="Updatestatus(event)">
-                                    <?php ?>
-                                    <input type="hidden" name="orderid" value="<?php echo  $value['orders_id']  ?>">
-                                    <input type="submit" name="update" value="Update status" class="btn btn-outline-success" <?php if ($value['order_status'] == "paid") {
-                                                                                                                                    echo "hidden";
-                                                                                                                                } else {
-                                                                                                                                }  ?>>
-                                </form>
 
                             </td>
                             <td>

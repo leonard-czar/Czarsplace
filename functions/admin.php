@@ -86,11 +86,17 @@ class Admin{
             return false;
         }
     }
-    function Updatebrandimg($img, $id)
+    function Updatebrandimg($file_ext, $id)
     {
+        $file_tmpname= $_FILES['image']['tmp_name'];
+
+        $newfilename= "czp".rand().".".$file_ext;
+        $destination= "images/$newfilename";
         $statement = $this->dbconnect->prepare("UPDATE brands SET  brand_image = ? WHERE brand_id = ?");
-        $statement->bind_param("si", $img, $id);
-        $statement->execute();
+        $statement->bind_param("si", $newfilename, $id);
+        if (move_uploaded_file($file_tmpname,$destination)) {
+            $statement->execute();
+          }
         if ($statement->affected_rows == 1) {
             return true;
         } elseif ($statement->affected_rows == 0) {
@@ -101,11 +107,17 @@ class Admin{
         }
     }
 
-    function Insertbrand($name, $image)
+    function Insertbrand($name, $file_ext)
     {
+        $file_tmpname= $_FILES['brandimage']['tmp_name'];
+
+        $newfilename= "czp".rand().".".$file_ext;
+        $destination= "images/$newfilename";
         $stmt = $this->dbconnect->prepare("INSERT into brands(brand_name,brand_image) VALUES(?,?) ");
-        $stmt->bind_param("ss", $name, $image);
-        $stmt->execute();
+        $stmt->bind_param("ss", $name, $newfilename);
+        if (move_uploaded_file($file_tmpname,$destination)) {
+            $stmt->execute();
+          }
 
         if ($stmt->error) {
             $result = "Oops! something happened. " . $stmt->error;
@@ -156,8 +168,13 @@ class Admin{
         $clasp,
         $water,
         $brandid,
-        $watchimg
+        $file_ext
     ) {
+        
+    $file_tmpname= $_FILES['watchimage']['tmp_name'];
+
+    $newfilename= "czp".rand().".".$file_ext;
+    $destination= "images/$newfilename";
 
         $stmt = $this->dbconnect->prepare("INSERT INTO wristwatches(watch_Name, watch_description, watch_price,
  collection,reference_number,case_description,gender,movement,dial,Bezel,crystal,caliber,watch_function,mechanism,
@@ -188,14 +205,17 @@ class Admin{
             $clasp,
             $water,
             $brandid,
-            $watchimg
+            $newfilename
         );
-
+      if (move_uploaded_file($file_tmpname,$destination)) {
         $stmt->execute();
+      }
 
+        
         if ($stmt->error) {
             $result = "Oops! something happened. " . $stmt->error;
         } else {
+             
             $result = "success";
         }
 
@@ -267,11 +287,16 @@ class Admin{
         }
     }
     
-    function Updateproductimage($img, $id)
+    function Updateproductimage($file_ext, $id)
     {
+        $file_tmpname= $_FILES['image']['tmp_name'];
+    $newfilename= "czp".rand().".".$file_ext;
+    $destination= "images/$newfilename";
         $statement = $this->dbconnect->prepare("UPDATE wristwatches SET watch_image = ? WHERE watch_id = ?");
-        $statement->bind_param("si", $img, $id);
-        $statement->execute();
+        $statement->bind_param("si", $newfilename, $id);
+        if (move_uploaded_file($file_tmpname,$destination)) {
+            $statement->execute();
+          }
         if ($statement->affected_rows == 1) {
             return true;
         } elseif ($statement->affected_rows == 0) {
@@ -309,7 +334,21 @@ class Admin{
             }
         }
         return $data;
-    } 
+    }
+    
+    function Getallpayment()
+    {
+        $stmt = $this->dbconnect->prepare("SELECT * FROM payments ORDER BY payments.datepaid DESC");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $data = [];
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+        }
+        return $data;
+    }
 
     function Getallproduct()
     {
@@ -339,7 +378,7 @@ class Admin{
     } 
     function Getallcustomersorder()
     {
-        $stmt = $this->dbconnect->prepare("SELECT * FROM customer_orders");
+        $stmt = $this->dbconnect->prepare("SELECT * FROM customer_orders join payments on customer_orders.orders_id=payments.orderid ORDER BY payments.datepaid DESC");
         $stmt->execute();
         $result = $stmt->get_result();
         $data = [];
@@ -350,6 +389,7 @@ class Admin{
         }
         return $data;
     }
+    
 
 
 }

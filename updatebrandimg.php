@@ -1,7 +1,34 @@
 <?php include_once "adminheader.php";
 $imgobj=new Admin();
 if (isset($_REQUEST['updateimg'])) {
-    $img=$imgobj->Updatebrandimg($_FILES['image']['name'],$_REQUEST["brandid"]);
+    $filename= $_FILES['image']['name'];
+    $filesize= $_FILES['image']['size'];
+    $tmpname= $_FILES['image']['tmp_name'];
+    $error= $_FILES['image']['error'];
+    $filetype= $_FILES['image']['type'];
+    
+    if ($error > 0) {
+        echo "you have not uploaded any file or the file is corrupt";
+        exit;
+    }
+    if ($filesize >9097152) {
+        echo "Profile photo cannot be more than 9mb";
+        exit;
+    }
+    $allowed_ext=["png","jpg","gif","jpeg"];
+    
+    $arrfilename= explode(".",$filename);
+    
+    $file_ext= end($arrfilename);
+    
+    $file_ext = strtolower($file_ext);
+    
+    if (!in_array($file_ext, $allowed_ext)) {
+        echo "Oops, file not supported!";
+        exit;
+    }
+    
+    $img=$imgobj->Updatebrandimg($file_ext,$_REQUEST["brandid"]);
     $msg="Image Updated Successfully!";
   header("Location: allbrands.php?msg=$msg");
 }

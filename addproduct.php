@@ -7,6 +7,34 @@ $brands = $obj->getallbrands();
 
 
 if (isset($_REQUEST['addproduct'])) {
+    $filename = $_FILES['watchimage']['name'];
+    $filesize = $_FILES['watchimage']['size'];
+    $tmpname = $_FILES['watchimage']['tmp_name'];
+    $error = $_FILES['watchimage']['error'];
+    $filetype = $_FILES['watchimage']['type'];
+
+    if ($error > 0) {
+        echo "you have not uploaded any file or the file is corrupt";
+        exit;
+    }
+    if ($filesize > 9097152) {
+        echo "Profile photo cannot be more than 9mb";
+        exit;
+    }
+    $allowed_ext = ["png", "jpg", "gif", "jpeg"];
+
+    $arrfilename = explode(".", $filename);
+
+    $file_ext = end($arrfilename);
+
+    $file_ext = strtolower($file_ext);
+
+    if (!in_array($file_ext, $allowed_ext)) {
+        echo "Oops, file not supported!";
+        exit;
+    }
+
+
 
 
     $pobj = new Admin;
@@ -36,11 +64,13 @@ if (isset($_REQUEST['addproduct'])) {
         $_REQUEST["clasp"],
         $_REQUEST["water_resistance"],
         $_REQUEST["Brandid"],
-        $_FILES['watch_image']['name'],
+        $file_ext,
 
     );
-    $add = "Product added Successfully!";
-    header("Location: allproducts.php?add=$add");
+    if ($product == 'success') {
+        $add = "Product added Successfully!";
+        header("Location: allproducts.php?add=$add");
+    }
 }
 
 ?>
@@ -127,9 +157,7 @@ if (isset($_REQUEST['addproduct'])) {
                 <div class="m-sm-3"><input type="text" name="water_resistance" value="<?php if (isset($_REQUEST['water_resistance'])) {
                                                                                             echo $_REQUEST['water_resistance'];
                                                                                         } ?>" placeholder="Water Resistance" class="form-control"></div>
-                <div class="m-sm-3"><input type="file" name="watch_image" value="<?php if (isset($_FILES['watch_image']['name'])) {
-                                                                                        echo $_FILES['watch_image']['name'];
-                                                                                    } ?>" placeholder="Watch Image" class="form-control" required></div>
+                <div class="m-sm-3"><input type="file" name="watchimage" value="" placeholder="Watch Image" class="form-control" required></div>
                 <div class="m-sm-3"><select name="Brandid" id="" class="form-control" required>
                         <option value="">Choose Brand</option>
                         <?php foreach ($brands as $key => $value) {

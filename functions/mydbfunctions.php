@@ -318,7 +318,7 @@ class Customer
 
     function getcart($id)
     {
-        $statement = $this->dbconnect->prepare("SELECT * FROM cart where userid=?");
+        $statement = $this->dbconnect->prepare("SELECT * FROM cart where userid=? ORDER BY cart.timeadded DESC");
         $statement->bind_param("i", $id);
         $statement->execute();
         $result = $statement->get_result();
@@ -398,7 +398,7 @@ class Customer
 
     function Getcustomerorder($id)
     {
-        $stmt = $this->dbconnect->prepare("SELECT * FROM customer_orders join payments on customer_orders.orders_id=payments.orderid where customer_id=?");
+        $stmt = $this->dbconnect->prepare("SELECT * FROM customer_orders join payments on customer_orders.orders_id=payments.orderid  where customer_id=? ORDER BY payments.datepaid DESC");
         $stmt->bind_param("i",$id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -445,7 +445,7 @@ class Customer
    
     function Getwatchidincart($id)
     {
-        $statement = $this->dbconnect->prepare("SELECT * FROM cart where userid=?");
+        $statement = $this->dbconnect->prepare("SELECT * FROM cart where userid=? ");
         $statement->bind_param("i", $id);
         $statement->execute();
         $result = $statement->get_result();

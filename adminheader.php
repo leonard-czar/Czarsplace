@@ -149,7 +149,7 @@ if (isset($_SESSION['log']) && $_SESSION['log'] == "#AdMin#") {
     <!-------------NAVBAR----------->
     <div class="container-fluid-sm">
         <div>
-            <div class="row " style="border-bottom: 1px solid ;background-color: #050C24;padding-bottom:30px;padding-left:22px;">
+            <div class="row " style="border-bottom: 1px solid ;background-color: #050C24;padding-bottom:30px;">
                 <div class="col-sm mt-sm-1 pt-sm-2" style="color:rgba(255, 255, 255);">
                     <a href="admindashboard.php" id="brandname">
                         <h1 class="text-center">
@@ -164,36 +164,42 @@ if (isset($_SESSION['log']) && $_SESSION['log'] == "#AdMin#") {
 
         <div class="row " style="background-color: #050C24;position:
                 sticky;top: 0;z-index:1; padding-left:12px;display:flex; ">
-            <div>
-                <nav class="navbar navbar-expand navbar-light">
+            <div >
+                <nav class="navbar navbar-expand navbar-light" >
                     <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                        <ul class="navbar-nav mb-sm-2 col-sm">
-                            <li class="nav-item col-sm-2" style="padding-left: 10px;">
+                        <ul class="navbar-nav mb-sm-2 col-sm text-center " style="justify-content:space-around;">
+                            <li class="nav-item col-sm-1" >
                                 <a class="nav-link " href="admindashboard.php" style="color:rgba(255, 255, 255,0.5);font-size: 1.1vw!important;">
                                     <b> Dashboard</b>
                                 </a>
                             </li>
-                            <li class="nav-item col-sm-2" style="padding-left: 10px;">
+                            <li class="nav-item col-sm-1" >
                                 <a class="nav-link " href="allproducts.php" style="color:rgba(255, 255, 255,0.5);font-size: 1.1vw!important;">
                                     <b> Products</b>
                                 </a>
                             </li>
-                            <li class="nav-item col-sm-2" style="padding-left: 10px;">
+                            <li class="nav-item col-sm-1" >
                                 <a class="nav-link " href="allbrands.php" style="color:rgba(255, 255, 255,0.5);font-size: 1.1vw!important;">
                                     <b> All Brands</b>
                                 </a>
                             </li>
-                            <li class="nav-item col-sm-2" style="padding-left: 10px;">
+                            <li class="nav-item col-sm-1" >
                                 <a class="nav-link " href="allorders.php" style="color:rgba(255, 255, 255,0.5);font-size: 1.1vw!important;">
                                     <b> All Orders</b>
                                 </a>
                             </li>
-                            <li class="nav-item col-sm-2" style="padding-left: 10px;">
+                            <li class="nav-item col-sm-1" >
                                 <a class="nav-link " href="allcustomers.php" style="color:rgba(255, 255, 255,0.5);font-size: 1.1vw!important;">
                                     <b>Customers</b>
                                 </a>
                             </li>
-                            <li class="col-sm mt-sm-1 offset-sm-1">
+                            
+                            <li class="nav-item col-sm-1" >
+                                <a class="nav-link " href="allpayment.php" style="color:rgba(255, 255, 255,0.5);font-size: 1.1vw!important;">
+                                    <b>Payments</b>
+                                </a>
+                            </li>
+                            <li class="col-sm-2 mt-sm-1">
                                 <a href="adminlogout.php" style="color:white;font-size:
              1.1vw!important;" class="btn btn-outline-danger btn-sm"><b>Logout</b>
                                 </a>

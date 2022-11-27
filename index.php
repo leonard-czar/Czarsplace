@@ -32,8 +32,8 @@ $brands = $brandobj->getallbrands();
           <div class="img-fluid "><img src="images/ban.jpg" class="d-block w-100 opacity-50" alt="...">
           </div>
           <!--moved the text to the middle of an image or banner -->
-          <div class="position-absolute top-50 start-50 translate-middle mb-5" style="background-color:rgb(251,208,121,0.7);width:max-content;border-radius:2%;box-shadow:7px 5px 17px 10px black;">
-            <span class="bannertxt" style="color:rgb(0,0,0,0.8) ;">Quality with class crafted just for you.</span>
+          <div class="position-absolute top-50 start-50 translate-middle mb-5" style="background-color:rgb(251,208,121,1);width:max-content;border-radius:2%;box-shadow:7px 5px 17px 1px rgb(251,208,121,0.7);">
+            <span class="bannertxt" style="color:rgb(0,0,0,0.9) ;">Quality with class crafted just for you.</span>
             <br>
           </div>
         </div>

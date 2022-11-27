@@ -9,7 +9,7 @@
         </footer>
         <script type="text/javascript" language="javascript">
             function Updatestatus(e) {
-                var response = confirm('Are you sure you want to update this order?');
+                var response = confirm('Are you sure you want to update this payment?');
                 if (response == true) {
                     return true;
                 } else {
