@@ -66,7 +66,7 @@ class Admin{
 
     function Updatestatus($id)
     {
-        $statement = $this->dbconnect->prepare("UPDATE customer_orders SET order_status = ? WHERE customer_orders.orders_id = ?");
+        $statement = $this->dbconnect->prepare("UPDATE payments SET payment_status = ? WHERE orderid = ?");
         $status="paid";
         $statement->bind_param("si", $status, $id);
         $statement->execute();

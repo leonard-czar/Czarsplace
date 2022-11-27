@@ -5,40 +5,40 @@
 if (isset($_REQUEST['btnaddbrand'])) {
 
     if (!empty($_REQUEST['brand_name'])) {
-        $filename= $_FILES['brandimage']['name'];
-    $filesize= $_FILES['brandimage']['size'];
-    $tmpname= $_FILES['brandimage']['tmp_name'];
-    $error= $_FILES['brandimage']['error'];
-    $filetype= $_FILES['brandimage']['type'];
-    
-    if ($error > 0) {
-        echo "you have not uploaded any file or the file is corrupt";
-        exit;
-    }
-    if ($filesize >9097152) {
-        echo "Profile photo cannot be more than 9mb";
-        exit;
-    }
-    $allowed_ext=["png","jpg","gif","jpeg"];
-    
-    $arrfilename= explode(".",$filename);
-    
-    $file_ext= end($arrfilename);
-    
-    $file_ext = strtolower($file_ext);
-    
-    if (!in_array($file_ext, $allowed_ext)) {
-        echo "Oops, file not supported!";
-        exit;
-    }
-    
+        $filename = $_FILES['brandimage']['name'];
+        $filesize = $_FILES['brandimage']['size'];
+        $tmpname = $_FILES['brandimage']['tmp_name'];
+        $error = $_FILES['brandimage']['error'];
+        $filetype = $_FILES['brandimage']['type'];
+
+        if ($error > 0) {
+            echo "you have not uploaded any file or the file is corrupt";
+            exit;
+        }
+        if ($filesize > 9097152) {
+            echo "Profile photo cannot be more than 9mb";
+            exit;
+        }
+        $allowed_ext = ["png", "jpg", "gif", "jpeg"];
+
+        $arrfilename = explode(".", $filename);
+
+        $file_ext = end($arrfilename);
+
+        $file_ext = strtolower($file_ext);
+
+        if (!in_array($file_ext, $allowed_ext)) {
+            echo "Oops, file not supported!";
+            exit;
+        }
+
 
         $obj = new Admin;
         $brand = $obj->Insertbrand($_REQUEST['brand_name'], $file_ext);
-        
-        if ($brand=='success') {
-            $addbrand = "Brand added Successfully!";            
-        header("Location: allbrands.php?addbrand=$addbrand");
+
+        if ($brand == 'success') {
+            $addbrand = "Brand added Successfully!";
+            header("Location: allbrands.php?addbrand=$addbrand");
         }
         exit;
     } else {

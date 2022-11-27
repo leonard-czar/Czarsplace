@@ -15,6 +15,9 @@ $cust = $cobj->Getallcustomers();
 $coobj = new Admin;
 $orders = $coobj->Getallcustomersorder();
 
+$pay = new Admin;
+$payment = $pay->Getallpayment();
+
 ?>
 <div class="row">
     <div class="col-sm text-center alert alert-info">
@@ -59,6 +62,13 @@ $orders = $coobj->Getallcustomersorder();
             <hr>
             <?php
             echo "<div>" . count($cust) . "</div>";
+            ?>
+        </div>
+        <div class="col-sm-2 m-sm-3 text-center p-2 bg-success text-light" style="box-shadow:2px 3px 6px #050C24;height:100px ">
+            <div>Total Payment</div>
+            <hr>
+            <?php
+            echo "<div>" . count($payment) . "</div>";
             ?>
         </div>
     </div>

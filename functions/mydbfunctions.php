@@ -300,7 +300,7 @@ class Customer
         return $data;
     } 
 
-    function getallbrands()
+    function Getallbrands()
     {
         $stmt = $this->dbconnect->prepare("SELECT * FROM brands");
         $stmt->execute();
@@ -316,7 +316,7 @@ class Customer
 
 
 
-    function getcart($id)
+    function Getcart($id)
     {
         $statement = $this->dbconnect->prepare("SELECT * FROM cart where userid=? ORDER BY cart.timeadded DESC");
         $statement->bind_param("i", $id);

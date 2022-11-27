@@ -8,7 +8,7 @@ if (isset($_REQUEST['quantity']) && $_REQUEST['cart_id']) {
 
 
 $itemobj = new Customer();
-$item = $itemobj->getcart($_SESSION['customer_id']);
+$item = $itemobj->Getcart($_SESSION['customer_id']);
 
 
 $itemobj = new Customer();

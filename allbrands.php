@@ -2,7 +2,7 @@
 include_once "adminheader.php";
 
 $bobj = new Admin;
-$brands = $bobj->getallbrands();
+$brands = $bobj->Getallbrands();
 ?>
 <div style="font-family: czars2;">
     <?php if (isset($_REQUEST['addbrand'])) {
