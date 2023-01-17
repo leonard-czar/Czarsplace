@@ -59,7 +59,7 @@ include_once "indexheader.php";
                 $_REQUEST['customer_address'],
                 $_REQUEST['customer_address2'],
                 $_REQUEST['state_id'],
-                $_REQUEST['customer_password'],
+                $_REQUEST['customer_password']
             );
 
 

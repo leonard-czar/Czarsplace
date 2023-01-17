@@ -9,11 +9,13 @@ include_once "functions/admin.php";
 <head>
   <meta charset="UTF-8 ">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit-to">
-  <meta name="author" content="leonard lebechi">
-  <meta name="description" content="your one stop shop for wristwatches">
+  <meta name="author" content="Czars place">
+  <meta name="description" content="Your one stop online store for wristwatches">
   <meta name="keywords" content="czar's Place,wristwatch,luxury watch,mechanical watch,
-    time,timepiece,online store,watch store,watch collection,
-    lagos,rolex,hublot,patek phillepe,">
+    time,timepiece,watch online store,watch store,watch collection,
+    lagos,rolex,hublot,patek phillepe,audemars,audemars piguet,
+    haven for wristwatches,spirit of big bang,trusted online store,reliable,Quality watch,best,czars">
+
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">

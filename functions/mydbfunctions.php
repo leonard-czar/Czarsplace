@@ -97,9 +97,7 @@ class Customer
         unset($_SESSION['email']);
         unset($_SESSION['fname']);
         unset($_SESSION['lname']);
-
-
-
+        
         header("location: login.php");
         exit();
     } 
@@ -318,7 +316,7 @@ class Customer
 
     function Getcart($id)
     {
-        $statement = $this->dbconnect->prepare("SELECT * FROM cart where userid=? ORDER BY cart.timeadded DESC");
+        $statement = $this->dbconnect->prepare("SELECT * FROM cart where userid=? ORDER BY cart.created_at DESC");
         $statement->bind_param("i", $id);
         $statement->execute();
         $result = $statement->get_result();

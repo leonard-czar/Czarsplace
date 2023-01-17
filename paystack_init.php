@@ -9,7 +9,6 @@ if (isset($_REQUEST['order']) && isset($_REQUEST['total']) && isset($_REQUEST['e
     
     $amount=$_REQUEST['total'];
     $reference= $_REQUEST['order'];
-    $_SESSION['email'];
 
     $insert_trans=$payobj->insertTransaction($reference,$amount);
 

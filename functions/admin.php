@@ -5,6 +5,7 @@ class Admin{
     var $adminid;
     var $admin_name;
     var $admin_pwd;
+    var $dbconnect;
 
     function __construct()
     {

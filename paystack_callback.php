@@ -1,5 +1,4 @@
 <?php
-var_dump($_REQUEST);
 if (isset($_REQUEST['reference'])) {
     
 include_once "functions/payment.php";
