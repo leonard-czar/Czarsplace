@@ -23,7 +23,7 @@ if (isset($_REQUEST['order']) && isset($_REQUEST['total']) && isset($_REQUEST['e
         }
         
     }else {
-        return ("Oops, something happened".$result->message);
+        return ("Oops, something happened");
         
     }
 
